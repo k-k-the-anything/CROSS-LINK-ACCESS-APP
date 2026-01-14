@@ -3,17 +3,12 @@ import { MainLayout } from './components/Layout';
 import { Dashboard } from './components/Dashboard';
 import { AccountManager } from './components/AccountManager';
 import { PostComposer } from './components/PostComposer';
+import { ScheduleCalendar } from './components/ScheduleCalendar';
 import { useAppStore } from './stores';
+import { schedulerService } from './services/scheduler';
 import './index.css';
 
-// Placeholder components for views not yet implemented
-const SchedulePlaceholder = () => (
-  <div className="p-6">
-    <h2 className="text-2xl font-bold mb-4">予約投稿</h2>
-    <p className="text-gray-500">予約投稿機能は Phase 3 で実装予定です。</p>
-  </div>
-);
-
+// Placeholder component for settings
 const SettingsPlaceholder = () => (
   <div className="p-6">
     <h2 className="text-2xl font-bold mb-4">設定</h2>
@@ -34,6 +29,14 @@ function App() {
     }
   }, [theme]);
 
+  // Start scheduler on mount
+  useEffect(() => {
+    schedulerService.start();
+    return () => {
+      schedulerService.stop();
+    };
+  }, []);
+
   const renderCurrentView = () => {
     switch (currentView) {
       case 'dashboard':
@@ -43,7 +46,7 @@ function App() {
       case 'accounts':
         return <AccountManager />;
       case 'schedule':
-        return <SchedulePlaceholder />;
+        return <ScheduleCalendar />;
       case 'settings':
         return <SettingsPlaceholder />;
       default:
