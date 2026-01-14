@@ -1,5 +1,5 @@
 // Platform types
-export type PlatformType = 'bluesky' | 'youtube' | 'instagram' | 'threads' | 'tiktok';
+export type PlatformType = 'bluesky' | 'youtube' | 'instagram' | 'threads' | 'tiktok' | 'x';
 
 export interface PlatformConfig {
     id: PlatformType;
@@ -84,6 +84,17 @@ export const PLATFORM_CONFIGS: Record<PlatformType, PlatformConfig> = {
         supportedMediaTypes: ['video/mp4'],
         maxMediaCount: 1,
         maxVideoLength: 600,
+        requiresBusinessAccount: false
+    },
+    x: {
+        id: 'x',
+        name: 'X (Twitter)',
+        icon: 'x',
+        color: '#000000',
+        maxTextLength: 280,
+        supportedMediaTypes: ['image/jpeg', 'image/png', 'image/gif', 'video/mp4'],
+        maxMediaCount: 4,
+        maxVideoLength: 140,
         requiresBusinessAccount: false
     }
 };
