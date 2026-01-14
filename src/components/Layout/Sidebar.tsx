@@ -7,13 +7,14 @@ import {
     Settings,
     ChevronLeft,
     ChevronRight,
-    Zap
+    Zap,
+    History,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useAppStore } from '../../stores';
 import { Button } from '../ui/Button';
 
-type ViewType = 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'settings';
+type ViewType = 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'history' | 'settings';
 
 interface NavItem {
     id: ViewType;
@@ -27,6 +28,7 @@ const navItems: NavItem[] = [
     { id: 'compose', label: '新規投稿', labelEn: 'New Post', icon: <PenSquare size={20} /> },
     { id: 'accounts', label: 'アカウント', labelEn: 'Accounts', icon: <Users size={20} /> },
     { id: 'schedule', label: '予約投稿', labelEn: 'Schedule', icon: <Calendar size={20} /> },
+    { id: 'history', label: '投稿履歴', labelEn: 'History', icon: <History size={20} /> },
     { id: 'settings', label: '設定', labelEn: 'Settings', icon: <Settings size={20} /> },
 ];
 

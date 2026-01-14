@@ -4,17 +4,11 @@ import { Dashboard } from './components/Dashboard';
 import { AccountManager } from './components/AccountManager';
 import { PostComposer } from './components/PostComposer';
 import { ScheduleCalendar } from './components/ScheduleCalendar';
+import { Settings } from './components/Settings';
+import { PostHistory } from './components/PostHistory';
 import { useAppStore } from './stores';
 import { schedulerService } from './services/scheduler';
 import './index.css';
-
-// Placeholder component for settings
-const SettingsPlaceholder = () => (
-  <div className="p-6">
-    <h2 className="text-2xl font-bold mb-4">設定</h2>
-    <p className="text-gray-500">設定画面は後で実装予定です。</p>
-  </div>
-);
 
 function App() {
   const { currentView, theme } = useAppStore();
@@ -47,8 +41,10 @@ function App() {
         return <AccountManager />;
       case 'schedule':
         return <ScheduleCalendar />;
+      case 'history':
+        return <PostHistory />;
       case 'settings':
-        return <SettingsPlaceholder />;
+        return <Settings />;
       default:
         return <Dashboard />;
     }

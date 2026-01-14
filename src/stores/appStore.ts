@@ -8,7 +8,7 @@ interface AppState {
     theme: Theme;
     language: Language;
     sidebarCollapsed: boolean;
-    currentView: 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'settings';
+    currentView: 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'history' | 'settings';
 
     // Actions
     setTheme: (theme: Theme) => void;
