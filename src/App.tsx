@@ -6,6 +6,7 @@ import { PostComposer } from './components/PostComposer';
 import { ScheduleCalendar } from './components/ScheduleCalendar';
 import { Settings } from './components/Settings';
 import { PostHistory } from './components/PostHistory';
+import { TemplateManager } from './components/TemplateManager';
 import { useAppStore } from './stores';
 import { schedulerService } from './services/scheduler';
 import './index.css';
@@ -43,6 +44,8 @@ function App() {
         return <ScheduleCalendar />;
       case 'history':
         return <PostHistory />;
+      case 'templates':
+        return <TemplateManager />;
       case 'settings':
         return <Settings />;
       default:

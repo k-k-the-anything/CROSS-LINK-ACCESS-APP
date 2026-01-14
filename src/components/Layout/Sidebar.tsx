@@ -9,12 +9,13 @@ import {
     ChevronRight,
     Zap,
     History,
+    FileText,
 } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { useAppStore } from '../../stores';
 import { Button } from '../ui/Button';
 
-type ViewType = 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'history' | 'settings';
+type ViewType = 'dashboard' | 'compose' | 'accounts' | 'schedule' | 'history' | 'templates' | 'settings';
 
 interface NavItem {
     id: ViewType;
@@ -29,6 +30,7 @@ const navItems: NavItem[] = [
     { id: 'accounts', label: 'アカウント', labelEn: 'Accounts', icon: <Users size={20} /> },
     { id: 'schedule', label: '予約投稿', labelEn: 'Schedule', icon: <Calendar size={20} /> },
     { id: 'history', label: '投稿履歴', labelEn: 'History', icon: <History size={20} /> },
+    { id: 'templates', label: 'テンプレート', labelEn: 'Templates', icon: <FileText size={20} /> },
     { id: 'settings', label: '設定', labelEn: 'Settings', icon: <Settings size={20} /> },
 ];
 
