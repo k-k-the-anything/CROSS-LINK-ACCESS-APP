@@ -1,7 +1,104 @@
-# Tauri + React + Typescript
+# CROSS LINK ACCESS
 
-This template should help get you started developing with Tauri, React and Typescript in Vite.
+<div align="center">
 
-## Recommended IDE Setup
+![Version](https://img.shields.io/badge/version-1.0.0-blue)
+![Platform](https://img.shields.io/badge/platform-macOS%20|%20Windows%20|%20Linux-lightgrey)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+**マルチプラットフォーム SNS 投稿ツール**
+
+Bluesky, YouTube, Instagram, Threads, TikTok への同時投稿・予約投稿が可能なデスクトップアプリケーション
+
+</div>
+
+---
+
+## ✨ 機能
+
+| 機能 | 説明 |
+|------|------|
+| 🔗 **クロスポスト** | 複数プラットフォームへの同時投稿 |
+| 📅 **予約投稿** | カレンダーUIで投稿をスケジュール |
+| 👤 **アカウント管理** | 各プラットフォームのアカウントを一元管理 |
+| 🖼️ **メディア対応** | 画像・動画のアップロード |
+
+## 🚀 対応プラットフォーム
+
+- **Bluesky** - App Password 認証
+- **YouTube** - OAuth 2.0（動画アップロード）
+- **Instagram** - Meta Graph API（画像・カルーセル）
+- **Threads** - Meta Threads API
+- **TikTok** - Content Posting API
+
+## 📦 インストール
+
+### macOS
+
+```bash
+# DMG からインストール
+open CROSS-LINK-ACCESS.dmg
+```
+
+### Windows
+
+```bash
+# MSI インストーラーを実行
+CROSS-LINK-ACCESS.msi
+```
+
+## 🛠️ 開発
+
+### 必要条件
+
+- Node.js 18+
+- Rust 1.70+
+- npm
+
+### セットアップ
+
+```bash
+# 依存関係をインストール
+npm install
+
+# 開発サーバーを起動
+npm run tauri dev
+```
+
+### ビルド
+
+```bash
+# プロダクションビルド
+npm run tauri build
+```
+
+## 📁 プロジェクト構成
+
+```
+src/
+├── components/          # React コンポーネント
+│   ├── AccountManager/  # アカウント管理
+│   ├── Dashboard/       # ダッシュボード
+│   ├── Layout/          # レイアウト
+│   ├── PostComposer/    # 投稿作成
+│   ├── ScheduleCalendar/# 予約カレンダー
+│   └── ui/              # 共通UIコンポーネント
+├── services/            # API サービス
+│   ├── bluesky.ts
+│   ├── youtube.ts
+│   ├── instagram.ts
+│   ├── threads.ts
+│   ├── tiktok.ts
+│   └── scheduler.ts
+├── stores/              # Zustand ストア
+├── types/               # TypeScript 型定義
+└── lib/                 # ユーティリティ
+```
+
+## 📄 ライセンス
+
+MIT License
+
+## 🤝 コントリビューション
+
+Issue や Pull Request を歓迎します！
