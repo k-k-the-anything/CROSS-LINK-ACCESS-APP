@@ -7,12 +7,17 @@ import { ScheduleCalendar } from './components/ScheduleCalendar';
 import { Settings } from './components/Settings';
 import { PostHistory } from './components/PostHistory';
 import { TemplateManager } from './components/TemplateManager';
+import { HelpCenter } from './components/HelpCenter';
 import { useAppStore } from './stores';
 import { schedulerService } from './services/scheduler';
+import { useKeyboardShortcuts } from './hooks';
 import './index.css';
 
 function App() {
   const { currentView, theme } = useAppStore();
+
+  // Initialize keyboard shortcuts
+  useKeyboardShortcuts();
 
   // Apply theme on mount and when theme changes
   useEffect(() => {
@@ -48,6 +53,8 @@ function App() {
         return <TemplateManager />;
       case 'settings':
         return <Settings />;
+      case 'help':
+        return <HelpCenter />;
       default:
         return <Dashboard />;
     }
