@@ -252,6 +252,79 @@ export const AccountManager: React.FC = () => {
         switch (activePlatform) {
             case 'bluesky':
                 return <BlueskyLoginForm onSuccess={handleAddAccount} />;
+            case 'youtube':
+                return (
+                    <div className="space-y-4">
+                        <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <h4 className="font-medium text-red-700 dark:text-red-300 mb-2">
+                                {language === 'ja' ? 'YouTube Data API v3 設定が必要です' : 'YouTube Data API v3 Setup Required'}
+                            </h4>
+                            <ol className="text-sm text-red-600 dark:text-red-400 space-y-1 list-decimal ml-4">
+                                <li>{language === 'ja' ? 'Google Cloud Console でプロジェクトを作成' : 'Create a project in Google Cloud Console'}</li>
+                                <li>{language === 'ja' ? 'YouTube Data API v3 を有効化' : 'Enable YouTube Data API v3'}</li>
+                                <li>{language === 'ja' ? 'OAuth 2.0 クライアント ID を作成' : 'Create OAuth 2.0 Client ID'}</li>
+                            </ol>
+                        </div>
+                        <a
+                            href="https://console.cloud.google.com/apis/library/youtube.googleapis.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-red-500 hover:underline"
+                        >
+                            Google Cloud Console を開く
+                            <ExternalLink size={12} />
+                        </a>
+                    </div>
+                );
+            case 'instagram':
+            case 'threads':
+                return (
+                    <div className="space-y-4">
+                        <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                            <h4 className="font-medium text-purple-700 dark:text-purple-300 mb-2">
+                                {language === 'ja' ? 'Meta 開発者設定が必要です' : 'Meta Developer Setup Required'}
+                            </h4>
+                            <ol className="text-sm text-purple-600 dark:text-purple-400 space-y-1 list-decimal ml-4">
+                                <li>{language === 'ja' ? 'Meta for Developers でアプリを作成' : 'Create an app in Meta for Developers'}</li>
+                                <li>{language === 'ja' ? 'Instagram Graph API を追加' : 'Add Instagram Graph API'}</li>
+                                <li>{language === 'ja' ? 'ビジネスアカウントと Facebook ページを連携' : 'Link Business account and Facebook Page'}</li>
+                            </ol>
+                        </div>
+                        <a
+                            href="https://developers.facebook.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-purple-500 hover:underline"
+                        >
+                            Meta for Developers を開く
+                            <ExternalLink size={12} />
+                        </a>
+                    </div>
+                );
+            case 'tiktok':
+                return (
+                    <div className="space-y-4">
+                        <div className="p-4 bg-gray-100 dark:bg-gray-800 rounded-lg">
+                            <h4 className="font-medium text-gray-700 dark:text-gray-300 mb-2">
+                                {language === 'ja' ? 'TikTok Developer 設定が必要です' : 'TikTok Developer Setup Required'}
+                            </h4>
+                            <ol className="text-sm text-gray-600 dark:text-gray-400 space-y-1 list-decimal ml-4">
+                                <li>{language === 'ja' ? 'TikTok for Developers で登録' : 'Register at TikTok for Developers'}</li>
+                                <li>{language === 'ja' ? 'Content Posting API を申請' : 'Apply for Content Posting API'}</li>
+                                <li>{language === 'ja' ? 'アプリ審査を通過（審査中は非公開投稿のみ）' : 'Pass app review (private posts only during review)'}</li>
+                            </ol>
+                        </div>
+                        <a
+                            href="https://developers.tiktok.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-sm text-gray-500 hover:underline"
+                        >
+                            TikTok for Developers を開く
+                            <ExternalLink size={12} />
+                        </a>
+                    </div>
+                );
             default:
                 return (
                     <div className="text-center py-8 text-gray-500">
