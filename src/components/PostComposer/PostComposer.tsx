@@ -1,11 +1,12 @@
 import React, { useState, useCallback } from 'react';
-import { Send, Image, X, Calendar, Check, AlertTriangle, Loader2 } from 'lucide-react';
+import { Send, Image, X, Calendar, Check, AlertTriangle, Loader2, Eye } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/Card';
 import { Button } from '../ui/Button';
 import { Textarea } from '../ui/Textarea';
 import { useAccountStore, usePostStore, useAppStore } from '../../stores';
 import { PLATFORM_CONFIGS, PlatformType, Account } from '../../types';
 import { blueskyService } from '../../services';
+import { PostPreview } from '../PostPreview';
 import { cn } from '../../lib/utils';
 
 // Platform checkbox component
@@ -126,6 +127,7 @@ export const PostComposer: React.FC = () => {
     const { language } = useAppStore();
 
     const [isPosting, setIsPosting] = useState(false);
+    const [showPreview, setShowPreview] = useState(false);
     const [postResults, setPostResults] = useState<Map<string, { status: 'posting' | 'success' | 'failed'; url?: string; error?: string }>>(new Map());
 
     const activeAccounts = accounts.filter((a) => a.isActive);
@@ -301,6 +303,14 @@ export const PostComposer: React.FC = () => {
                                         <Calendar size={16} className="mr-2" />
                                         {labels.schedule}
                                     </Button>
+                                    <Button
+                                        variant={showPreview ? 'default' : 'outline'}
+                                        size="sm"
+                                        onClick={() => setShowPreview(!showPreview)}
+                                    >
+                                        <Eye size={16} className="mr-2" />
+                                        {language === 'ja' ? 'プレビュー' : 'Preview'}
+                                    </Button>
                                 </div>
                                 <Button
                                     onClick={handlePost}
@@ -343,6 +353,15 @@ export const PostComposer: React.FC = () => {
                                         />
                                     );
                                 })}
+                            </CardContent>
+                        </Card>
+                    )}
+
+                    {/* Post Preview */}
+                    {showPreview && currentDraft.content && (
+                        <Card>
+                            <CardContent className="p-4">
+                                <PostPreview content={currentDraft.content} />
                             </CardContent>
                         </Card>
                     )}
