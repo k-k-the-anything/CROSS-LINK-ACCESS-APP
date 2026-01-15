@@ -25,11 +25,14 @@ Bluesky, YouTube, Instagram, Threads, TikTok への同時投稿・予約投稿�
 
 ## 🚀 対応プラットフォーム
 
-- **Bluesky** - App Password 認証
-- **YouTube** - OAuth 2.0（動画アップロード）
-- **Instagram** - Meta Graph API（画像・カルーセル）
-- **Threads** - Meta Threads API
-- **TikTok** - Content Posting API
+| プラットフォーム | 認証方式 | 状態 |
+|---------------|---------|------|
+| **Bluesky** | App Password | ✅ テスト済み |
+| **X (Twitter)** | OAuth 2.0 PKCE | 🔧 実装済み |
+| **YouTube** | OAuth 2.0 | 🔧 実装済み |
+| **Instagram** | Meta Graph API | 🔧 実装済み |
+| **Threads** | Meta Threads API | 🔧 実装済み |
+| **TikTok** | Content Posting API | 🔧 実装済み |
 
 ## 📦 インストール
 
